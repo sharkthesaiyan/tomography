@@ -4,6 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from pylab import meshgrid
 import pylab
 import random
+import sys
 
 def modelFunction(x,y,scale=1.0):
 	#Two peaks
@@ -33,8 +34,14 @@ def integrate(xmin,ymin,xmax,ymax,step):
 	return sum
 
 def main():
+	
+	try:
+		n = int(sys.argv[1])
+	except:
+		n = 100
+
 	random.seed(16167)
-	step = 0.0001
+	step = 0.00001
 	xmin = -10.0
 	xmax = 10.0
 	ymin = -10.0
@@ -48,24 +55,33 @@ def main():
 
 	a = integrate(0.0,0.0,10.0,10.0,0.1)
 	
-	for i in range(100):
-		x1 = random.uniform(xmin,xmax)	
-		y1 = random.uniform(ymin,ymax)
-		x2 = random.uniform(xmin,xmax)
-		y2 = random.uniform(ymin,ymax)
-		if(x1<=x2):
-			integral = integrate(x1,y1,x2,y2,step)
-			print(str(x1)+"\t"+str(y1)+"\t"+str(x2)+"\t"+str(y2)+"\t"+str(integral))
-		else:
-			integral = integrate(x2,y2,x1,y1,step)
-			print(str(x2)+"\t"+str(y2)+"\t"+str(x1)+"\t"+str(y1)+"\t"+str(integral))
+	try:
+		outfile = sys.argv[2]
+	except:
+		outfile = "testoutfile%i.dat" %(n)
+	
+	with open(outfile,"w") as f: 
+		for i in range(n):
+			x1 = random.uniform(xmin,xmax)	
+			y1 = random.uniform(ymin,ymax)
+			x2 = random.uniform(xmin,xmax)
+			y2 = random.uniform(ymin,ymax)
+			if(x1<=x2):
+				integral = 100.0*integrate(x1,y1,x2,y2,step)
+				toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x1,y1,x2,y2,integral)
+				f.write(toPrint+"\n")
+			else:
+				integral = 100.0*integrate(x2,y2,x1,y1,step)
+				toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x2,y2,x1,y1,integral)
+				f.write(toPrint+"\n")
+	
 
-	fig = plt.figure()
-	ax = fig.gca(projection='3d')
-	surf = ax.plot_surface(X,Y,z)
-	plt.show()
-#	pylab.pcolor(X,Y,z)
-#	pylab.colorbar()
-#	pylab.show()
+#	fig = plt.figure()
+#	ax = fig.gca(projection='3d')
+#	surf = ax.plot_surface(X,Y,z)
+#	plt.show()
+	pylab.pcolor(X,Y,z)
+	pylab.colorbar()
+	pylab.savefig("model.png")
 
 main()
