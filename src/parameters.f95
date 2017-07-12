@@ -4,7 +4,8 @@ module parameters
                                           stderr=>error_unit
 
 	integer, parameter :: 	rk = selected_real_kind(20,40), & !64 bit
-       &			maxbuffer = 40
+       &			maxbuffer = 40, &
+       &			inputdatacolumns = 5
 	real(kind=rk), parameter :: 	pi = 3.14159265358979323846264
 
 end module parameters
