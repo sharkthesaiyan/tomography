@@ -61,6 +61,7 @@ def main():
 		outfile = "testoutfile%i.dat" %(n)
 	
 	with open(outfile,"w") as f: 
+		f.write(str(n)+"\n")
 		for i in range(n):
 			x1 = random.uniform(xmin,xmax)	
 			y1 = random.uniform(ymin,ymax)

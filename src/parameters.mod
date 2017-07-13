@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from parameters.f95
-MD5:90511f53d8b877c973c30037ed82f359 -- If you edit this, you'll get what you deserve.
+MD5:b8e63ac0b98f28a8c3447a6c87d98be6 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -25,7 +25,7 @@ UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 INTRINSIC) (UNKNOWN 0 0 0 0 UNKNOWN ())
 0 0 () () 0 () () () 1 0)
 5 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
-CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '40') () 0 () () () 0 0)
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
 6 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 0)

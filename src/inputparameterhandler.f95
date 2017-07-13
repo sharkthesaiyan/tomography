@@ -42,5 +42,4 @@ contains
 		end if
 	end function cmd2int
 
-
 end module inputparameterhandler

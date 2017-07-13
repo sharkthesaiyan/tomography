@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from filehandler.f95
-MD5:c1bd47ca72a56c60f750863358184831 -- If you edit this, you'll get what you deserve.
+MD5:a97e3c992465dc7f4c1f017395ad09e8 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () ()
 () () () ())
@@ -34,7 +34,7 @@ MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 10
 0 (11 12 13) () 0 () () () 0 0)
 14 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
-CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '40') () 0 () () () 0 0)
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
 15 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 0)
@@ -59,10 +59,10 @@ UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6') () 0 () () () 1 14)
 6 'inputdatafile' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER
-()) 0 '40'))) 0 0 () () 0 () () () 0 0)
+()) 0 '100'))) 0 0 () () 0 () () () 0 0)
 11 'inputdatafile' '' '' 10 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0
-INTEGER ()) 0 '40'))) 0 0 () () 0 () () () 0 0)
+INTEGER ()) 0 '100'))) 0 0 () () 0 () () () 0 0)
 12 'inputdata' '' '' 10 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 UNKNOWN 0 0 DIMENSION DUMMY) (REAL 16 0 0 0 REAL ()) 0 0 () (2 0
 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (

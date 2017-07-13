@@ -1,4 +1,7 @@
 {
 "comment" : "Ville Jantunen 2017",
-"inputDataFile" : "./testmodel/testdata.dat"  
+"inputDataFile" : "./testmodel/testoutfile100.dat",  
+"outputFile" : "../out/results.dat",
+"rows" : 10,
+"columns" : 10
 }
