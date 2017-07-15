@@ -7,9 +7,10 @@ program tomography
     integer :: n,m, inputdatalength
     !rk from parameters module
     real(kind=rk), allocatable :: grid(:,:), inputdata(:,:), systemmatrix(:,:)
+    real(kind=rk) :: xmax, ymax
     character(len=maxbuffer) :: inputdatafile, outputfile
 
-    call getinputparameters(n,m,inputdatafile,outputfile)
+    call getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile)
 
     print *, n,m,inputdatafile,outputfile
 
@@ -24,6 +25,6 @@ program tomography
     call loadinputdata(inputdatafile, inputdata, inputdatalength)
 
     allocate(systemmatrix(inputdatalength,n*m))
-    call inputdatatosystemmatrix(systemmatrix,inputdatalength,n*m,inputdata,inputdatalength)
+    call inputdatatosystemmatrix(systemmatrix,inputdatalength,n*m,inputdata,inputdatalength,xmax,ymax)
 
 end program tomography

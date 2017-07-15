@@ -3,5 +3,7 @@
 "inputDataFile" : "./testmodel/testoutfile100.dat",  
 "outputFile" : "../out/results.dat",
 "rows" : 10,
-"columns" : 10
+"columns" : 10,
+"xmax" : 20,
+"ymax" : 20
 }
