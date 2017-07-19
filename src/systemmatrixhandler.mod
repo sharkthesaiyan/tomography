@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from systemmatrixhandler.f95
-MD5:2059b787d491c0c79d5a44d98d9471c0 -- If you edit this, you'll get what you deserve.
+MD5:17f745f25cb1040b1ce3506ec3150fba -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () ()
 () () () ())
@@ -25,41 +25,44 @@ UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 0 0)
 12 'inputdatatosystemmatrix' 'systemmatrixhandler' '' 1 ((PROCEDURE
 UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0
-UNKNOWN ()) 13 0 (14 15 16 17 18 19 20) () 0 () () () 0 0)
-21 'iso_fortran_env' 'iso_fortran_env' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN ()) 13 0 (14 15 16 17 18 19 20 21 22) () 0 () () () 0 0)
+23 'iso_fortran_env' 'iso_fortran_env' '' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 INTRINSIC) (UNKNOWN 0 0 0 0 UNKNOWN ())
 0 0 () () 0 () () () 1 0)
-22 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+24 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
-23 'measurementtomatrixrow' 'systemmatrixhandler' '' 1 ((PROCEDURE
+25 'measurementtomatrixrow' 'systemmatrixhandler' '' 1 ((PROCEDURE
 UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 DIMENSION FUNCTION
-ALWAYS_EXPLICIT) (REAL 8 0 0 0 REAL ()) 24 0 (25 26 27 28 29) (1 0
+ALWAYS_EXPLICIT) (REAL 8 0 0 0 REAL ()) 26 0 (27 28 29 30 31) (1 0
 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (OP (INTEGER 4 0
-0 0 INTEGER ()) 0 TIMES (VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 26 ())
-(VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 27 ()))) 23 () () () 0 0)
-30 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+0 0 INTEGER ()) 0 TIMES (VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 28 ())
+(VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 29 ()))) 25 () () () 0 0)
+32 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 0)
-31 'pi' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+33 'pi' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
 REAL 8 0 0 0 REAL ()) 0 '0.3243f6c0000000@1') () 0 () () () 0 0)
-32 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+34 'rcond' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '-0.10000000000000@1') () 0 () () () 0 0)
+35 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
-33 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
+36 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (REAL 4 0 0 0 REAL ()) 0 0 ()
-() 33 () () () 0 0)
-34 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+() 36 () () () 0 0)
+37 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 1 3)
-35 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+38 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 1 5)
-36 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+39 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6') () 0 () () () 1 14)
-37 'systemmatrixhandler' 'systemmatrixhandler' '' 1 ((MODULE
+40 'systemmatrixhandler' 'systemmatrixhandler' '' 1 ((MODULE
 UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0
 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
 5 'currenti' '' '' 4 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
@@ -95,23 +98,27 @@ DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 UNKNOWN 0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
 20 'ymax' '' '' 13 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 UNKNOWN 0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-25 'inputrow' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+21 'gridn' '' '' 13 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+22 'gridm' '' '' 13 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+27 'inputrow' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
 INTEGER 4 0 0 0 INTEGER ()) 0 '1') (OP (INTEGER 4 0 0 0 INTEGER ()) 0
-TIMES (VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 26 ()) (VARIABLE (
-INTEGER 4 0 0 0 INTEGER ()) 0 27 ()))) 0 () () () 0 0)
-26 'gridrows' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+TIMES (VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 28 ()) (VARIABLE (
+INTEGER 4 0 0 0 INTEGER ()) 0 29 ()))) 0 () () () 0 0)
+28 'gridrows' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-27 'gridcolumns' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+29 'gridcolumns' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-28 'xmax' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+30 'xmax' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-29 'ymax' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+31 'ymax' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
 )
 
 ('__convert_r4_r8' 0 2 'followraylocation' 0 3 'inputdatacolumns' 0 11
-'inputdatatosystemmatrix' 0 12 'iso_fortran_env' 0 21 'maxbuffer' 0 22
-'measurementtomatrixrow' 0 23 'parameters' 0 30 'pi' 0 31 'rk' 0 32
-'selected_real_kind' 0 33 'stderr' 0 34 'stdin' 0 35 'stdout' 0 36
-'systemmatrixhandler' 0 37)
+'inputdatatosystemmatrix' 0 12 'iso_fortran_env' 0 23 'maxbuffer' 0 24
+'measurementtomatrixrow' 0 25 'parameters' 0 32 'pi' 0 33 'rcond' 0 34
+'rk' 0 35 'selected_real_kind' 0 36 'stderr' 0 37 'stdin' 0 38 'stdout'
+0 39 'systemmatrixhandler' 0 40)

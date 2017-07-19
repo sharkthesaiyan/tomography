@@ -47,6 +47,8 @@ contains
 		integer :: currenti, currentj, i, endi, endj, oldi, oldj
 		real(kind=rk) :: startcoordinates(2), endcoordinates(2), k, rectanglesize, travellength, startx, starty, endx, endy
 		
+		print *, "rivit ja kolumnit:", gridrows, gridcolumns
+
 		startcoordinates = inputrow(1:2)
 		endcoordinates = inputrow(3:4)
 		
@@ -72,7 +74,6 @@ contains
 		endy = endcoordinates(2) - (endj-1)*rectanglesize
 
 		do
-			print *, currenti, currentj, startx, starty
 			if(currenti == endi .and. currentj == endj) then
 				travellength = sqrt( (endx - startx*rectanglesize)**2 + (endy - starty*rectanglesize)**2 )					
 				measurementtomatrixrow((currenti-1)*gridrows + currentj) = travellength
@@ -86,14 +87,14 @@ contains
 		
 	end function measurementToMatrixRow
 
-	subroutine inputdatatosystemmatrix(systemmatrix,n,m,inputdata,datalength,xmax,ymax)
+	subroutine inputdatatosystemmatrix(systemmatrix,n,m,inputdata,datalength,xmax,ymax,gridn,gridm)
 		implicit none
-		integer,intent(in) :: n,m,datalength
+		integer,intent(in) :: n,m,datalength, gridn, gridm
 		real(kind=rk) :: systemmatrix(n,m), inputdata(datalength,inputdatacolumns), xmax, ymax
 		integer :: i
 
 		do i=1,datalength
-			systemmatrix(i,:) = measurementToMatrixRow(inputdata(i,:),n,m,xmax,ymax)
+			systemmatrix(i,:) = measurementToMatrixRow(inputdata(i,:),gridn,gridm,xmax,ymax)
 		end do
 
 	end subroutine inputdatatosystemmatrix

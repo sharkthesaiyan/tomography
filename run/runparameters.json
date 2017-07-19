@@ -1,9 +1,9 @@
 {
 "comment" : "Ville Jantunen 2017",
-"inputDataFile" : "./testmodel/testoutfile100.dat",  
+"inputDataFile" : "./testmodel/testoutfile900.dat",  
 "outputFile" : "../out/results.dat",
-"rows" : 10,
-"columns" : 10,
-"xmax" : 20,
-"ymax" : 20
+"rows" : 64,
+"columns" : 64,
+"xmax" : 10.0,
+"ymax" : 10.0
 }

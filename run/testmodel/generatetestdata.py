@@ -42,13 +42,13 @@ def main():
 
 	random.seed(16167)
 	step = 0.00001
-	xmin = -10.0
+	xmin = 0.0
 	xmax = 10.0
-	ymin = -10.0
+	ymin = 0.0
 	ymax = 10.0
 	
-	x = np.arange(-10,10,00.1)
-	y = np.arange(-10,10,00.1)
+	x = np.arange(0,10,00.1)
+	y = np.arange(0,10,00.1)
 	X,Y = meshgrid(x,y)
 
 	z = modelFunction(X,Y)
@@ -62,19 +62,29 @@ def main():
 	
 	with open(outfile,"w") as f: 
 		f.write(str(n)+"\n")
-		for i in range(n):
-			x1 = random.uniform(xmin,xmax)	
-			y1 = random.uniform(ymin,ymax)
-			x2 = random.uniform(xmin,xmax)
-			y2 = random.uniform(ymin,ymax)
-			if(x1<=x2):
-				integral = 100.0*integrate(x1,y1,x2,y2,step)
-				toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x1,y1,x2,y2,integral)
-				f.write(toPrint+"\n")
-			else:
-				integral = 100.0*integrate(x2,y2,x1,y1,step)
-				toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x2,y2,x1,y1,integral)
-				f.write(toPrint+"\n")
+		for j in range(3):
+			for k in range(3):
+				for i in range(100):
+					startangle = np.pi*1.0/2.0 - j*1.0472
+
+					r = 0.45 - 0.1*k
+
+					angle = startangle + i*np.pi/150.0 + 20*np.pi/120.0
+					x1 = 0.5*xmax + r*xmax*np.cos(angle)
+					y1 = 0.5*ymax + r*ymax*np.sin(angle)
+
+					angle2 = startangle - i*np.pi/150.0 - 20*np.pi/120.0
+					x2 = 0.5*xmax + r*xmax*np.cos(angle2)
+					y2 = 0.5*ymax + r*ymax*np.sin(angle2)
+
+					if(x1<=x2):
+						integral = 100.0*integrate(x1,y1,x2,y2,step)
+						toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x1,y1,x2,y2,integral)
+						f.write(toPrint+"\n")
+					else:
+						integral = 100.0*integrate(x2,y2,x1,y1,step)
+						toPrint = "%15.9f \t %15.9f \t %15.9f \t %15.9f \t %15.9f" %(x2,y2,x1,y1,integral)
+						f.write(toPrint+"\n")
 	
 
 #	fig = plt.figure()

@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from filehandler.f95
-MD5:19bc18faaa67e2cd8b99d239d17c7dca -- If you edit this, you'll get what you deserve.
+MD5:3e95a4530a9f027a05fc7ce9dd72676d -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () ()
 () () () ())
@@ -41,19 +41,22 @@ UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 16 'pi' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
 REAL 8 0 0 0 REAL ()) 0 '0.3243f6c0000000@1') () 0 () () () 0 0)
-17 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+17 'rcond' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '-0.10000000000000@1') () 0 () () () 0 0)
+18 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
-18 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
+19 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (REAL 4 0 0 0 REAL ()) 0 0 ()
-() 18 () () () 0 0)
-19 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+() 19 () () () 0 0)
+20 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 1 3)
-20 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+21 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 1 5)
-21 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+22 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6') () 0 () () () 1 14)
 6 'inputdatafile' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
@@ -73,5 +76,5 @@ CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5')) 0 () () () 0 0)
 
 ('__convert_r4_r8' 0 2 'filehandler' 0 3 'getinputdatalength' 0 4
 'inputdatacolumns' 0 7 'iso_fortran_env' 0 8 'loadinputdata' 0 9
-'maxbuffer' 0 14 'parameters' 0 15 'pi' 0 16 'rk' 0 17
-'selected_real_kind' 0 18 'stderr' 0 19 'stdin' 0 20 'stdout' 0 21)
+'maxbuffer' 0 14 'parameters' 0 15 'pi' 0 16 'rcond' 0 17 'rk' 0 18
+'selected_real_kind' 0 19 'stderr' 0 20 'stdin' 0 21 'stdout' 0 22)
