@@ -47,8 +47,6 @@ contains
 		integer :: currenti, currentj, i, endi, endj, oldi, oldj
 		real(kind=rk) :: startcoordinates(2), endcoordinates(2), k, rectanglesize, travellength, startx, starty, endx, endy
 		
-		print *, "rivit ja kolumnit:", gridrows, gridcolumns
-
 		startcoordinates = inputrow(1:2)
 		endcoordinates = inputrow(3:4)
 		
@@ -65,7 +63,6 @@ contains
 		starty = startcoordinates(2) - (currentj-1)*rectanglesize
 		
 		measurementtomatrixrow = 0.0d0
-		print *, currenti, currentj, endi, endj
 
 		startx = startx/rectanglesize
 		starty = starty/rectanglesize

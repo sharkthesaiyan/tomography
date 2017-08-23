@@ -26,7 +26,7 @@ def integrate(xmin,ymin,xmax,ymax,step):
 	x = xmin
 	y = ymin
 	while(True):
-		sum += step*modelFunction(x,y)
+		sum += 0.5*(modelFunction(x,y) + modelFunction(x+stepx,y+stepy))*step
 		x += stepx
 		y += stepy
 		if( x>= xmax or y >= ymax ):
