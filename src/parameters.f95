@@ -6,6 +6,8 @@ module parameters
 	integer, parameter :: 	rk = selected_real_kind(10,40), & !64 bit
        &			maxbuffer = 100, &
        &			inputdatacolumns = 5
-	real(kind=rk), parameter :: 	pi = 3.14159265358979323846264, rcond = -1.0
+	real(kind=rk), parameter :: 	pi = 3.14159265358979323846264, rcond = -1.0, &
+       &				densitymax = 100.0, &
+       &				densitymin = 0.0
 
 end module parameters

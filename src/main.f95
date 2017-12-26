@@ -3,21 +3,16 @@ program tomography
     use inputparameterhandler
     use filehandler
     use systemmatrixhandler
+    use customsolver
     implicit none
     integer :: n,m, inputdatalength, i
     integer, allocatable :: indexarray(:)
     !rk from parameters module
-    real(kind=rk), allocatable :: grid(:,:), inputdata(:,:), A(:,:), x(:), b(:)
+    real(kind=rk), allocatable :: inputdata(:,:), A(:,:), x(:), b(:)
     real(kind=rk) :: xmax, ymax
     character(len=maxbuffer) :: inputdatafile, outputfile
 
     call getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile)
-
-    print *, n,m,inputdatafile,outputfile,xmax,ymax
-
-    if(n>0 .and. m>0) then
-        allocate(grid(n,m))
-    end if
 
     !from filehandler
     inputdatalength = getinputdatalength(inputdatafile)
@@ -26,12 +21,16 @@ program tomography
     call loadinputdata(inputdatafile, inputdata, inputdatalength)
 
     allocate(A(inputdatalength,n*m))
-
     call inputdatatosystemmatrix(A,inputdatalength,n*m,inputdata,inputdatalength,xmax,ymax,n,m)
 
-    print *, A
+    allocate(x(n*m))
+    allocate(b(inputdatalength))
+
 
     !now just solve Ax = b, using lapack subroutine DGELSS or something else
+    b = inputdata(:,5)
+
+    call solveaxb(A,inputdatalength,n,m,x,n*m,b,inputdatalength,10.0d0) 
 
 !    open(unit=1,file="asd.txt")
 !	do i = 1, m*n, n

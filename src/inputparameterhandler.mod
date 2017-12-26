@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from inputparameterhandler.f95
-MD5:69d5794c462c6590fddc1f7a52685553 -- If you edit this, you'll get what you deserve.
+MD5:758c37819630b89719ed8e2c7eaf863b -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () ()
 () () () ())
@@ -23,66 +23,74 @@ MODULE-PROC DECL UNKNOWN 0 0 FUNCTION) (INTEGER 4 0 0 0 INTEGER ()) 4 0
 6 'cmd2real' 'inputparameterhandler' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 FUNCTION) (REAL 8 0 0 0 REAL ()) 7 0 (8) ()
 6 () () () 0 0)
-9 'getinputparameters' 'inputparameterhandler' '' 1 ((PROCEDURE
+9 'densitymax' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.64000000000000@2') () 0 () () () 0 0)
+10 'densitymin' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (
+CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.00000000000000@0') () 0 () () () 0
+0)
+11 'getinputparameters' 'inputparameterhandler' '' 1 ((PROCEDURE
 UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0
-UNKNOWN ()) 10 0 (11 12 13 14 15 16) () 0 () () () 0 0)
-17 'inputdatacolumns' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN ()) 12 0 (13 14 15 16 17 18) () 0 () () () 0 0)
+19 'inputdatacolumns' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 0 0)
-18 'inputparameterhandler' 'inputparameterhandler' '' 1 ((MODULE
+20 'inputparameterhandler' 'inputparameterhandler' '' 1 ((MODULE
 UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0
 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
-19 'iso_fortran_env' 'iso_fortran_env' '' 1 ((MODULE UNKNOWN-INTENT
+21 'iso_fortran_env' 'iso_fortran_env' '' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 INTRINSIC) (UNKNOWN 0 0 0 0 UNKNOWN ())
 0 0 () () 0 () () () 1 0)
-20 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+22 'maxbuffer' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
-21 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+23 'parameters' 'parameters' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
 0)
-22 'pi' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+24 'pi' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
 REAL 8 0 0 0 REAL ()) 0 '0.3243f6c0000000@1') () 0 () () () 0 0)
-23 'rcond' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+25 'rcond' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
 REAL 8 0 0 0 REAL ()) 0 '-0.10000000000000@1') () 0 () () () 0 0)
-24 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+26 'rk' 'parameters' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
-25 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
+27 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (REAL 4 0 0 0 REAL ()) 0 0 ()
-() 25 () () () 0 0)
-26 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+() 27 () () () 0 0)
+28 'stderr' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 1 3)
-27 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+29 'stdin' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 1 5)
-28 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
+30 'stdout' 'iso_fortran_env' '' 1 ((PARAMETER UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
 CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6') () 0 () () () 1 14)
 5 'n' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
 INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 8 'n' '' '' 7 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
 INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-11 'n' '' '' 10 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+13 'n' '' '' 12 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-12 'm' '' '' 10 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+14 'm' '' '' 12 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-13 'xmax' '' '' 10 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+15 'xmax' '' '' 12 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-14 'ymax' '' '' 10 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+16 'ymax' '' '' 12 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-15 'inputdatafile' '' '' 10 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+17 'inputdatafile' '' '' 12 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN UNKNOWN 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (
 INTEGER 4 0 0 0 INTEGER ()) 0 '100'))) 0 0 () () 0 () () () 0 0)
-16 'outputfile' '' '' 10 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+18 'outputfile' '' '' 12 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 UNKNOWN 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (INTEGER 4 0
 0 0 INTEGER ()) 0 '100'))) 0 0 () () 0 () () () 0 0)
 )
 
-('__convert_r4_r8' 0 2 'cmd2int' 0 3 'cmd2real' 0 6 'getinputparameters'
-0 9 'inputdatacolumns' 0 17 'inputparameterhandler' 0 18 'iso_fortran_env'
-0 19 'maxbuffer' 0 20 'parameters' 0 21 'pi' 0 22 'rcond' 0 23 'rk' 0 24
-'selected_real_kind' 0 25 'stderr' 0 26 'stdin' 0 27 'stdout' 0 28)
+('__convert_r4_r8' 0 2 'cmd2int' 0 3 'cmd2real' 0 6 'densitymax' 0 9
+'densitymin' 0 10 'getinputparameters' 0 11 'inputdatacolumns' 0 19
+'inputparameterhandler' 0 20 'iso_fortran_env' 0 21 'maxbuffer' 0 22
+'parameters' 0 23 'pi' 0 24 'rcond' 0 25 'rk' 0 26 'selected_real_kind'
+0 27 'stderr' 0 28 'stdin' 0 29 'stdout' 0 30)

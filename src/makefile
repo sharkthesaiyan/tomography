@@ -1,12 +1,15 @@
 SHELL:=/bin/bash
-flags=-g
+flags=-O2
 compile=gfortran
 
-tomography: parameters.o inputparameterhandler.o filehandler.o systemmatrixhandler.o nnlsmodule.o main.o
-	$(compile) $(flags) -L/usr/lib/ -o tomography parameters.o inputparameterhandler.o filehandler.o systemmatrixhandler.o nnlsmodule.o main.o -lblas -llapack
+tomography: parameters.o mt19937-64.o inputparameterhandler.o filehandler.o systemmatrixhandler.o customsolver.o main.o
+	$(compile) $(flags) -o tomography parameters.o mt19937-64.o inputparameterhandler.o filehandler.o systemmatrixhandler.o customsolver.o main.o
 
 parameters.o: parameters.f95
 	$(compile) $(flags) -c parameters.f95
+
+mt19937-64.o: mt19937-64.f95
+	$(compile) $(flags) -c mt19937-64.f95
 
 inputparameterhandler.o: inputparameterhandler.f95
 	$(compile) $(flags) -c inputparameterhandler.f95
@@ -17,8 +20,8 @@ filehandler.o: filehandler.f95
 systemmatrixhandler.o: systemmatrixhandler.f95
 	$(compile) $(flags) -c systemmatrixhandler.f95
 
-nnlsmodule.o: nnlsmodule.f95
-	$(compile) $(flags) -c nnlsmodule.f95
+customsolver.o: customsolver.f95
+	$(compile) $(flags) -c customsolver.f95
 
 main.o: main.f95
 	$(compile) $(flags) -c main.f95
@@ -27,4 +30,3 @@ clean:
 	rm -f *.o 
 	rm -f *.mod
 	if [ -e "tomography" ]; then rm tomography; fi
-
