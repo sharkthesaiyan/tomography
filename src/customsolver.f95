@@ -30,62 +30,42 @@ contains
 		
 	end function punish
 
-	subroutine solveaxb(A,m,n,na,x,nx,b,nb,xmax,seed)
+	subroutine solveaxb(A,m,n,na,x,nx,b,nb,xmax,rounds, final_value)
 		implicit none
-		integer, intent(in) :: m,n,na, nx, nb
+		integer, intent(in) :: m,n,na, nx, nb, rounds
 		real(kind=rk), intent(in) :: A(na, m*n), b(nb), xmax
+		real(kind=rk), intent(out) :: final_value
 		real(kind=rk), intent(inout) :: x(nx)
-		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value, best_x(nx), best_value, punishweight
-		integer :: i,j,k, rounds, points		
-		integer(kind=8), intent(in) :: seed
-
-
-		call init_genrand64(seed)
+		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value, punishweight
+		integer :: i,j
+		
 		step = 0.5
-		rounds = 1000
-		points = 100
-		best_value = -1.0d0
-		best_x = 0.0
 		punishweight = 0.2		
 
-		do k=1,points
-			print *, k, new_value, best_value
-			!First the initial guess for x
+		old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
+		do j = 1,rounds	
 			do i=1,nx
-				x(i) = genrand64_real1()*xmax
+				y = x
+				y(i) = y(i) + step
+				btest = matmul(A,y)
+				erro = b - btest
+				new_value = norm2(erro) + punishweight*punish(x,nx,m,n)
+				gradient(i) = new_value - old_value
 			end do
+			x = x - gradient*step/(norm2(gradient))
+			!boundaries: no negative values or values over xmax
+			do i=1,nx
+				if(x(i)<0.0) then
+					x(i) = 0.0d0	
+				else if(x(i)>xmax) then
+					x(i) = xmax
+				end if
+			end do	
 
-			!then minimize ||Ax-b|| + f(x) using gradient descend method
 			old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
-			do j = 1,rounds	
-				do i=1,nx
-					y = x
-					y(i) = y(i) + step
-					btest = matmul(A,y)
-					erro = b - btest
-					new_value = norm2(erro) + punishweight*punish(x,nx,m,n)
-					gradient(i) = new_value - old_value
-				end do
-				x = x - gradient*step/(norm2(gradient))
-				!boundaries: no negative values or values over xmax
-				do i=1,nx
-					if(x(i)<0.0) then
-						x(i) = 0.0d0	
-					else if(x(i)>xmax) then
-						x(i) = xmax
-					end if
-				end do	
-
-				old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
-			end do
-
-			if(new_value < best_value .or. best_value < 0.0) then
-				best_value = new_value
-				best_x = x
-			end if
 		end do
 
-		x = best_x
+		final_value = old_value
 
 	end subroutine solveaxb 
 
