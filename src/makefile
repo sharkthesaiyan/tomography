@@ -1,5 +1,5 @@
 SHELL:=/bin/bash
-flags=-O2
+flags=-O2 -fcheck=bounds
 compile=gfortran
 
 tomography: parameters.o mt19937-64.o inputparameterhandler.o filehandler.o systemmatrixhandler.o customsolver.o main.o

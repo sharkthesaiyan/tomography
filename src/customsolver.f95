@@ -25,31 +25,29 @@ contains
 
 		end do
 
-		punish = penalty
+		punish = penalty*0.2d0
 		
 	end function punish
 
 	subroutine solveaxb(A,m,n,na,x,nx,b,nb,xmax,seed)
 		implicit none
 		integer, intent(in) :: m,n,na, nx, nb
-		real(kind=rk), intent(in) :: A(m*n,na), b(nb), xmax
+		real(kind=rk), intent(in) :: A(na, m*n), b(nb), xmax
 		real(kind=rk), intent(inout) :: x(nx)
-		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value
+		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value, best_x(nx), best_value
 		integer :: i,j,k, rounds, points		
-		integer(kind=8), optional :: seed
+		integer(kind=8), intent(in) :: seed
 
-		if(present(seed)) then
-			call init_genrand64(seed)
-		else
-			seed = 157361865			
-			call init_genrand64(seed)
-		end if
 
-		step = 0.1
-		rounds = 100
+		call init_genrand64(seed)
+		step = 0.5
+		rounds = 1000
 		points = 100
-
+		best_value = -1.0d0
+		best_x = 0.0
+		
 		do k=1,points
+			print *, k, new_value, best_value
 			!First the initial guess for x
 			do i=1,nx
 				x(i) = genrand64_real1()*xmax
@@ -57,9 +55,7 @@ contains
 
 			!then minimize ||Ax-b|| + f(x) using gradient descend method
 			old_value = norm2(b - matmul(A,x)) + punish(x,nx,m,n)
-			do j = 1,rounds
-				x = 0.0d0	
-
+			do j = 1,rounds	
 				do i=1,nx
 					y = x
 					y(i) = y(i) + step
@@ -68,8 +64,7 @@ contains
 					new_value = norm2(erro) + punish(x,nx,m,n)
 					gradient(i) = new_value - old_value
 				end do
-				x = x - gradient*step
-			
+				x = x - gradient*step/(norm2(gradient))
 				!boundaries: no negative values or values over xmax
 				do i=1,nx
 					if(x(i)<0.0) then
@@ -81,7 +76,15 @@ contains
 
 				old_value = new_value
 			end do
+			!new_value = norm2(b - matmul(A,x)) + punish(x,nx,m,n)
+
+			if(new_value < best_value .or. best_value < 0.0) then
+				best_value = new_value
+				best_x = x
+			end if
 		end do
+
+		x = best_x
 
 	end subroutine solveaxb 
 
