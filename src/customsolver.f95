@@ -35,7 +35,7 @@ contains
 		integer, intent(in) :: m,n,na, nx, nb
 		real(kind=rk), intent(in) :: A(na, m*n), b(nb), xmax
 		real(kind=rk), intent(inout) :: x(nx)
-		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value, best_x(nx), best_value
+		real(kind=rk) :: btest(nb),  erro(nb), y(nx), step, gradient(nx), old_value, new_value, best_x(nx), best_value, punishweight
 		integer :: i,j,k, rounds, points		
 		integer(kind=8), intent(in) :: seed
 
@@ -46,7 +46,8 @@ contains
 		points = 100
 		best_value = -1.0d0
 		best_x = 0.0
-		
+		punishweight = 0.2		
+
 		do k=1,points
 			print *, k, new_value, best_value
 			!First the initial guess for x
@@ -55,14 +56,14 @@ contains
 			end do
 
 			!then minimize ||Ax-b|| + f(x) using gradient descend method
-			old_value = norm2(b - matmul(A,x)) + punish(x,nx,m,n)
+			old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
 			do j = 1,rounds	
 				do i=1,nx
 					y = x
 					y(i) = y(i) + step
 					btest = matmul(A,y)
 					erro = b - btest
-					new_value = norm2(erro) + punish(x,nx,m,n)
+					new_value = norm2(erro) + punishweight*punish(x,nx,m,n)
 					gradient(i) = new_value - old_value
 				end do
 				x = x - gradient*step/(norm2(gradient))
@@ -75,9 +76,8 @@ contains
 					end if
 				end do	
 
-				old_value = new_value
+				old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
 			end do
-			!new_value = norm2(b - matmul(A,x)) + punish(x,nx,m,n)
 
 			if(new_value < best_value .or. best_value < 0.0) then
 				best_value = new_value
