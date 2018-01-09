@@ -10,22 +10,23 @@ contains
 		integer, intent(in) :: nx,m,n
 		real(kind=rk), intent(in) :: x(nx)
 		integer :: i
-		real(kind=rk) :: penalty
-		!punish for big jumps
+		real(kind=rk) :: penalty, deriv2
+		!punish for big jumps i.e. large second order derivatives
 		penalty = 0.0d0
 		do i=1, nx
 			!----
-			if(mod(i,m)/=1) then
-				penalty = penalty + (x(i) - x(i-1))**2
+			if(mod(i,m)/=1 .and. mod(i,m)/=0) then
+				deriv2 = (x(i+1) - 2*x(i) + x(i-1))**2
+				penalty = penalty + deriv2
 			end if			
 			
-			if(i>m) then
-				penalty = penalty + (x(i) - x(i-m))**2
+			if(i>m .and. i<n*(m-1)) then
+				deriv2 = (x(i+m) - 2*x(i) + x(i-m))**2
+				penalty = penalty + deriv2
 			end if
-
 		end do
 
-		punish = penalty*0.2d0
+		punish = penalty
 		
 	end function punish
 
