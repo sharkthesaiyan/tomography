@@ -6,7 +6,7 @@ program tomography
     use customsolver
     implicit none
     include "mpif.h"
-    integer :: n,m, inputdatalength, i,j, rounds = 100, points=1000
+    integer :: n,m, inputdatalength, i,j, rounds, points
     integer, allocatable :: indexarray(:)
     !rk from parameters module
     real(kind=rk), allocatable :: inputdata(:,:), A(:,:), x(:), b(:), bestx(:), message(:)
@@ -22,7 +22,7 @@ program tomography
     call MPI_COMM_SIZE(MPI_COMM_WORLD, ntasks, ierror)
     call MPI_COMM_RANK(MPI_COMM_WORLD, myid, ierror)
 
-    call getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile)
+    call getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile, points, rounds)
 
     !from filehandler
     inputdatalength = getinputdatalength(inputdatafile)
@@ -45,14 +45,17 @@ program tomography
     call init_genrand64(seed)
    
     !Essentially do i=1,points in parallel, note that i is just a counter of rounds and has no meaning	
-    do i=1, points, ntasks
+    do i=1+myid, points, ntasks
 	do j=1,n*m
 	    x(j) = genrand64_real1()*xmax
 	end do
         call solveaxb(A,n,m,inputdatalength,x,n*m,b,inputdatalength,20.0d0, rounds, value) 
-	if(value<best_value .or. i==1) then
+	if(value<best_value .or. i==1+myid) then
 		bestx = x
 		best_value = value
+	end if
+	if(mod(i,points/100)==0 .and. points>1000) then
+		print *, i/(points/100), "% done"
 	end if
     end do
 
@@ -63,12 +66,13 @@ program tomography
 	call MPI_SEND(message, m*n+1, MPI_DOUBLE_PRECISION, 0,tag,MPI_COMM_WORLD, ierror)
     end if
 
+    !master receives and compares to others
     if(myid==0) then
 	print *,"best values:", 0, best_value 
 	do i=1,ntasks-1
 	    call MPI_RECV(message, m*n+1, MPI_DOUBLE_PRECISION, i, tag, MPI_COMM_WORLD, stat, ierror)
 	    print *,"best values:", i, message(m*n+1) 
-            if(message(n*m) < best_value) then
+            if(message(n*m+1) < best_value) then
 		bestx = message(1:m*n)
 		best_value = message(m*n+1)
 	    end if
@@ -76,6 +80,9 @@ program tomography
     end if
 
     x = bestx
+    if(myid==0) then
+    	print *, "best final:", best_value
+    end if
 
     if(myid==0) then
 	open(unit=1,file="asd.txt")

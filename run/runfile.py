@@ -17,7 +17,7 @@ def main():
 	print(str(os.path.abspath(config["inputDataFile"]))+", "+ str(os.path.abspath(config["outputFile"])))
 
 	if(os.path.isfile("../src/"+programName)):
-		sp.call(["mpirun","-n",str(config["ncores"]),"../src/"+programName,str(config["rows"]),str(config["columns"]),str(config["xmax"]),str(config["ymax"]),os.path.abspath(config["inputDataFile"]),os.path.abspath(config["outputFile"])])
+		sp.call(["mpirun","-n",str(config["ncores"]),"../src/"+programName,str(config["rows"]),str(config["columns"]),str(config["xmax"]),str(config["ymax"]),os.path.abspath(config["inputDataFile"]),os.path.abspath(config["outputFile"]), str(config["points"]),str(config["rounds"])])
 	else:
 		errorPrint("program: " + programName + " not found in:"+"../src/.", "Remember to compile the program first.")		
 

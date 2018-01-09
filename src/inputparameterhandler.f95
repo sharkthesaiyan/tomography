@@ -4,19 +4,21 @@ module inputparameterhandler
 	
 contains
 	!rk and maxbuffer from parameters module
-	subroutine getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile)
+	subroutine getinputparameters(n,m,xmax,ymax,inputdatafile,outputfile, points, rounds)
 		implicit none
-		integer, intent(inout) :: n,m
+		integer, intent(inout) :: n,m, points, rounds
 		real(kind=rk), intent(inout) :: xmax, ymax
 		character(len=maxbuffer) :: inputdatafile, outputfile
 
-		if(command_argument_count()==6) then
+		if(command_argument_count()==8) then
 			n = cmd2int(1)
 			m = cmd2int(2)
 			xmax = cmd2real(3)
 			ymax = cmd2real(4)
 			call get_command_argument(5,inputdatafile)
-			call get_command_argument(6,outputfile)			
+			call get_command_argument(6,outputfile)
+			points = cmd2int(7)
+			rounds = cmd2int(8)
 		else
 			write(stderr,*), "Wrong number of command line arguments"
 		end if

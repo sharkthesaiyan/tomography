@@ -2,9 +2,11 @@
 "comment" : "Ville Jantunen 2017",
 "inputDataFile" : "./testmodel/pareeolis.dat",  
 "outputFile" : "../out/results.dat",
-"rows" : 5,
-"columns" : 5,
+"rows" : 2,
+"columns" : 2,
 "xmax" : 10.0,
 "ymax" : 10.0,
-"ncores" : 4
+"ncores" : 4,
+"points" : 100000,
+"rounds" : 100
 }

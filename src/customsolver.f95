@@ -40,7 +40,7 @@ contains
 		integer :: i,j
 		
 		step = 0.5
-		punishweight = 0.2		
+		punishweight = 0.0
 
 		old_value = norm2(b - matmul(A,x)) + punishweight*punish(x,nx,m,n)
 		do j = 1,rounds	
